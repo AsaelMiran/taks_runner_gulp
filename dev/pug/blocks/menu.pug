@@ -1,0 +1,6 @@
+ul.ed-menu.web-horzontal.web-main-end
+  each pagina in paginas
+    if pagina == 'inicio'
+      li: a(href="/") #{pagina}
+    else
+      li: a(href=pagina+'.html') #{pagina}
