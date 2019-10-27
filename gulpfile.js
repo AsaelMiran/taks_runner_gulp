@@ -6,6 +6,7 @@ var sass = require('gulp-sass')
 var postcss = require('gulp-postcss')
 var cssnano = require('cssnano')
 const imagemin = require('gulp-imagemin');
+const tinypng = require('gulp-tinypng');
 
 const server = browserSync.create()
 const postCSSPlugins = [
@@ -15,6 +16,11 @@ const postCSSPlugins = [
     }
   })
 ]
+gulp.task('tiny', () => {
+  gulp.src('./dev/img/*.{png,jpg}')
+  .pipe(tinypng('jVlTKwQP35hdmHkpmX2s6N0rCqT9Mj4l'))
+  .pipe(gulp.dest('./public/img'))
+})
 
 gulp.task('img', ()=>{
   gulp.src('./dev/img/*')
